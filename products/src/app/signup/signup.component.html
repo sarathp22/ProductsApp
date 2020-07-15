@@ -1,0 +1,46 @@
+<div class="py-5">
+    <div class="row">
+    <div class="col-md-4 mx-auto">
+    <span class="anchor" id="formLogin"></span>
+    
+    <div class="card rounded-0">
+        <div class="card-header">
+            <h3 class="mb-0 text-center">SignUp</h3>
+    
+        </div>
+        <div class="card-body m-auto" >
+            <form  class="form" #userSignup="ngForm" (ngSubmit)="signupUser()">
+                <div class="form-group">
+                    <label for="fname" >First Name:</label><br>
+                    <input type="text" [(ngModel)]="signupData.fname" class="form-control rounded-0" #name=ngModel [class.is-invalid]="name.invalid && name.touched" name="fname" pattern="^[a-zA-Z]+$"  required>
+                    <small class="text-danger" [class.d-none]="name.valid || name.untouched">Characters Only </small>
+                </div>
+                <div class="form-group">
+                    <label for="name" >Last Name:</label><br>
+                    <input type="text" [(ngModel)]="signupData.lname" class="form-control rounded-0" #lname=ngModel [class.is-invalid]="lname.invalid && lname.touched" name="lastname" pattern="^[a-zA-Z]+$"  required>
+                    <small class="text-danger" [class.d-none]="lname.valid || lname.untouched">Characters Only</small>
+                </div>
+                <div class="form-group">
+                    <label for="name" >Phone Number:</label><br>
+                    <input type="text" [(ngModel)]="signupData.phone" class="form-control rounded-0" #phone=ngModel [class.is-invalid]="phone.invalid && phone.touched" name="phone" pattern="^[0-9]{10,10}$"   required>
+                    <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Enter 10 digit Number</small>
+                </div>
+                <div class="form-group">
+                    <label for="uname1">Email:</label><br>
+                    <input type="text" [(ngModel)]="signupData.email" class="form-control rounded-0" #email=ngModel [class.is-invalid]="email.invalid && email.touched" name="email" pattern="^[a-z0-9.%+.]+@[a-z0-9.-]+\.[a-z]{2,4}$" required >
+                <small class="text-danger" [class.d-none]="email.valid || email.untouched">Enter a valid email</small>
+                </div>
+                <div class="form-group">
+                    <label for="password" >Password:</label><br>
+                    <input type="password" [(ngModel)]="signupData.password" class="form-control rounded-0" #password=ngModel [class.is-invalid]="password.invalid && password.touched" name="password" minlength="6"  required>
+                    <small class="text-danger" [class.d-none]="password.valid || password.untouched">Enter minimum 8 characters</small>
+                </div>
+                <div><small class="text-danger">{{errData}}</small></div>
+                <button type="submit"  class="btn bg-primary float-right" [disabled]="userSignup.form.invalid">SignUp</button>
+            </form> 
+        </div>
+    
+    </div>
+    </div>
+    </div>
+    </div>

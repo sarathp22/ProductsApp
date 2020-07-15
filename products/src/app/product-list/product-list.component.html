@@ -1,0 +1,42 @@
+<div class="card" onload="location.reload();">
+    <div class="card-header">
+        {{title}}
+    </div>
+    <div class="card-body">
+        <div class="table-responcive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <button class="btn btn-primary"
+                            (click)="toggleImage()">
+                                {{showImage? 'Hide' : 'Show' }} Image
+                            </button>
+                        </th>
+                        <th>Product</th>
+                        <th>Code</th>
+                        <th>Available</th>
+                        <th>Price</th>
+                        <th>5 Star rating</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let product of products'>
+                        <td><img *ngIf='showImage' 
+                        [src]='product.imageUrl'
+                        [title]='product.productName'
+                        [style.width.px]='imageWidth'
+                        [style.margin.px]='imageMargin'></td>
+                        <td>{{product.productName}}</td>
+                        <td>{{product.productCode}}</td>
+                        <td>{{product.releaseDate}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.starRating}}</td>
+                        <td><button class="btn btn-primary text-white px-4" id="product._id" (click)="editProduct({pid:product._id,proid:product.productId,pname:product.productName,pcode:product.productCode,pdate:product.releaseDate,pdes:product.description,price:product.price,prat:product.starRating,purl:product.imageUrl})">Edit</button><button class="btn btn-danger text-white ml-3" id="product._id" (click)="deleteProduct(product._id)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

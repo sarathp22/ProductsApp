@@ -1,0 +1,8 @@
+<h1>{{title}}</h1>
+<div class="card-header">
+    <a routerLink="/signup"  *ngIf="!productService.loggedIn()">SignUp</a>
+    <a routerLink="/login" class="ml-3" *ngIf="!productService.loggedIn()">Login</a>
+    <a routerLink="/" class="ml-3" *ngIf="productService.loggedIn()">Products</a>
+    <a routerLink="/add" class="ml-3" *ngIf="productService.loggedIn()">Add Products</a>
+    <a routerLink="/login"  class="mr-3 float-right" *ngIf="productService.loggedIn()" (click)="logoutUser()">Logout</a>
+</div>

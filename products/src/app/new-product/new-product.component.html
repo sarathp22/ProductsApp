@@ -1,0 +1,59 @@
+<div class="card">
+    <form #newProduct="ngForm" (ngSubmit)="AddProduct()">
+        <div class="card-header">
+            {{title}}
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td><label>Product Id</label></td>
+                            <td><input type="text" name="p_id" class="form-control rounded-0 w-25" #pid=ngModel  [class.is-invalid]="pid.invalid && pid.touched" pattern="^[0-9]+$"  [(ngModel)]="productItem.productId" required></td>
+                        </tr>
+                        <tr *ngIf="pname.invalid"><td></td><td><small class="text-danger" [class.d-none]="pid.valid || pid.untouched">Enter valid product id </small></td></tr>
+                        <tr>
+                            <td><label>Product Name</label></td>
+                            <td><input type="text" name="p_name" class="form-control rounded-0 w-25" #pname=ngModel [class.is-invalid]="pname.invalid && pname.touched" pattern="^[a-zA-z\s]+$"  [(ngModel)]="productItem.productName" required></td>
+                        </tr>
+                        <tr *ngIf="pname.invalid"><td></td><td><small class="text-danger" [class.d-none]="pname.valid || pname.untouched">Enter valid product name </small></td></tr>
+                        <tr>
+                            <td><label>Product Code</label></td>
+                            <td><input type="text" name="p_code" class="form-control rounded-0 w-25" #pcode=ngModel  [class.is-invalid]="pcode.invalid && pcode.touched" pattern="^[a-zA-Z0-9-]+$"  [(ngModel)]="productItem.productCode" required></td>
+                        </tr>
+                        <tr *ngIf="pcode.invalid"><td></td><td><small class="text-danger" [class.d-none]="pcode.valid || pcode.untouched">Enter valid product code </small></td></tr>
+                        <tr>
+                            <td><label>Release Date</label></td>
+                            <td><input type="text" name="p_date" class="form-control rounded-0 w-25" #pdate=ngModel  [class.is-invalid]="pdate.invalid && pdate.touched" pattern="^[a-zA-Z0-9\s-,]+$"  [(ngModel)]="productItem.releaseDate" required></td>
+                        </tr>
+                        <tr *ngIf="pdes.invalid"><td></td><td><small class="text-danger" [class.d-none]="pdate.valid || pdate.untouched">Enter valid Release date </small></td></tr>
+                        <tr>
+                            <td><label>Description</label></td>
+                            <td><input type="text" name="p_des" class="form-control rounded-0 w-25" #pdes=ngModel  [class.is-invalid]="pdes.invalid && pdes.touched" pattern="^[a-zA-z0-9-]+$"  [(ngModel)]="productItem.description" required></td>
+                        </tr>
+                        <tr *ngIf="pdes.invalid"><td></td><td><small class="text-danger" [class.d-none]="pdes.valid || pdes.untouched">Enter product description </small></td></tr>
+                        <tr>
+                            <td><label>Price</label></td>
+                            <td><input type="text" name="p_price" class="form-control rounded-0 w-25" #ppri=ngModel  [class.is-invalid]="ppri.invalid && ppri.touched" pattern="^[0-9.]+$"  [(ngModel)]="productItem.price" required></td>
+                        </tr>
+                        <tr *ngIf="ppri.invalid"><td></td><td><small class="text-danger" [class.d-none]="ppri.valid || ppri.untouched">Enter price of the product </small></td></tr>
+                        <tr>
+                            <td><label>Star Rating</label></td>
+                            <td><input type="text" name="p_rating" class="form-control rounded-0 w-25" #prat=ngModel  [class.is-invalid]="prat.invalid && prat.touched" pattern="^[0-9.]+$" [(ngModel)]="productItem.starRating" required></td>
+                        </tr>
+                        <tr *ngIf="prat.invalid"><td></td><td><small class="text-danger" [class.d-none]="prat.valid || prat.untouched">Enter Star rating </small></td></tr>
+                        <tr>
+                            <td><label>Image Url</label></td>
+                            <td><input type="text" name="p_url" #purl=ngModel class="form-control rounded-0 w-25" [class.is-invalid]="purl.invalid && purl.touched" [(ngModel)]="productItem.imageUrl" required></td>
+                        </tr>
+                        <tr *ngIf="purl.invalid"><td></td><td><small class="text-danger"  [class.d-none]="purl.valid || purl.untouched">Enter a valid image Url </small></td></tr>
+                        <tr>
+                            
+                           <td></td> <td><input type="submit" name="submit" value="Add" class="px-4 bg-primary text-white" [disabled]="newProduct.form.invalid" ></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
